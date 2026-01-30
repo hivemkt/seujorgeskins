@@ -205,6 +205,25 @@
             }
         }
 
+        .hero-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
+        }
+
         /* Section Styles */
         section {
             padding: 6rem 5%;
@@ -463,7 +482,7 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            background: linear-gradient(135deg, #25d366, #128c7e);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             color: white;
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
@@ -472,12 +491,12 @@
             font-weight: 600;
             margin-top: 3rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
         }
 
         .contact-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
         }
 
         .whatsapp-icon {
@@ -553,6 +572,7 @@
             <div class="animated-text-container">
                 <span class="animated-text">Quer <span class="animated-word" id="animatedWord">comprar</span> skins?</span>
             </div>
+            <a href="#sobre" class="hero-btn">Saiba Mais</a>
         </div>
     </section>
 
@@ -710,7 +730,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; Feito por hive.mkt - Todos os direitos reservados SEU JORGE SKINS</p>
+        <p>&copy; 2026 SEU JORGE SKINS - Todos os direitos reservados</p>
     </footer>
 
     <script>
