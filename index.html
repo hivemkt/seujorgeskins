@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEU JORGE SKINS - Compra, Venda e Troca de Skins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #00d4ff;
+            --secondary-blue: #0066ff;
+            --dark-bg: #0a0e27;
+            --darker-bg: #050812;
+            --card-bg: #151b3d;
+            --text-light: #ffffff;
+            --text-gray: #a0aec0;
+            --accent-cyan: #00ffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--darker-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.98) 0%, rgba(10, 14, 39, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--primary-blue);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes glow {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .animated-text-container {
+            font-size: 2.5rem;
+            font-weight: 500;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .animated-text {
+            display: inline-block;
+        }
+
+        .animated-word {
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Sobre Section */
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sobre-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(0deg) translateY(-100%); }
+            100% { transform: rotate(0deg) translateY(100%); }
+        }
+
+        .sobre-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .sobre-text h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Inventário Section */
+        #inventario {
+            background: var(--dark-bg);
+        }
+
+        .inventory-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 255, 0.2));
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .card-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Depoimentos Section */
+        .depoimentos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .depoimento {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .depoimento-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .depoimento-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contatos Section */
+        #contatos {
+            background: var(--dark-bg);
+        }
+
+        .contatos-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 80px;
+            height: 80px;
+            background: var(--card-bg);
+            border: 2px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Contact Button */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.5rem;
+        }
+
+        .section-contact-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle, .animated-text-container {
+                font-size: 1.5rem;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-image">SJ</div>
+            <span class="logo-text">SEU JORGE</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#inventario">Inventário</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contatos">Contatos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">SEU JORGE SKINS</h1>
+            <div class="animated-text-container">
+                <span class="animated-text">Quer <span class="animated-word" id="animatedWord">comprar</span> skins?</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre">
+        <h2 class="section-title">SOBRE</h2>
+        <div class="sobre-content">
+            <div class="sobre-image">
+                SJ
+            </div>
+            <div class="sobre-text">
+                <h3>Sua melhor escolha para skins!</h3>
+                <p>
+                    Com anos de experiência no mercado de skins, oferecemos as melhores condições para compra, venda e troca de skins. 
+                    Nossa missão é proporcionar segurança, confiabilidade e os melhores preços do mercado.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Trabalhamos com transparência total, garantindo que cada transação seja realizada com o máximo de segurança. 
+                    Nosso inventário é constantemente atualizado com as melhores ofertas e skins mais procuradas.
+                </p>
+            </div>
+        </div>
+        <div class="section-contact-btn">
+            <a href="https://wa.me/5511999999999" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">📱</span>
+                Entrar em contato
+            </a>
+        </div>
+    </section>
+
+    <!-- Inventário Section -->
+    <section id="inventario">
+        <h2 class="section-title">INVENTÁRIO</h2>
+        <p class="inventory-subtitle">MELHORES OFERTAS EM ESTOQUE</p>
+        <div class="cards-container" id="inventoryCards">
+            <!-- Cards serão inseridos via JavaScript -->
+            <div class="card">
+                <div class="card-image">🔫</div>
+                <h3 class="card-title">AK-47 | Redline</h3>
+                <p class="card-price">R$ 89,90</p>
+                <p class="card-description">Field-Tested • Float 0.15 • Excelente estado de conservação</p>
+            </div>
+            <div class="card">
+                <div class="card-image">🗡️</div>
+                <h3 class="card-title">Karambit | Fade</h3>
+                <p class="card-price">R$ 4.299,00</p>
+                <p class="card-description">Factory New • 90% Fade • Skin rara e valorizada</p>
+            </div>
+            <div class="card">
+                <div class="card-image">🔫</div>
+                <h3 class="card-title">AWP | Asiimov</h3>
+                <p class="card-price">R$ 299,00</p>
+                <p class="card-description">Field-Tested • Icônica • Muito procurada</p>
+            </div>
+            <div class="card">
+                <div class="card-image">🗡️</div>
+                <h3 class="card-title">Butterfly | Slaughter</h3>
+                <p class="card-price">R$ 3.850,00</p>
+                <p class="card-description">Minimal Wear • Padrão diamante • Raridade extrema</p>
+            </div>
+            <div class="card">
+                <div class="card-image">🔫</div>
+                <h3 class="card-title">M4A4 | Howl</h3>
+                <p class="card-price">R$ 8.500,00</p>
+                <p class="card-description">Factory New • Contraband • Skin lendária</p>
+            </div>
+            <div class="card">
+                <div class="card-image">🗡️</div>
+                <h3 class="card-title">Bayonet | Doppler</h3>
+                <p class="card-price">R$ 2.100,00</p>
+                <p class="card-description">Factory New • Phase 2 • Pink Galaxy</p>
+            </div>
+        </div>
+        <div class="section-contact-btn">
+            <a href="https://wa.me/5511999999999" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">📱</span>
+                Entrar em contato
+            </a>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos">
+        <h2 class="section-title">DEPOIMENTOS</h2>
+        <div class="depoimentos-container">
+            <div class="depoimento">
+                <p class="depoimento-text">
+                    "Melhor lugar para comprar skins! Atendimento rápido e preços justos. Já fiz várias compras e sempre tive uma experiência excelente. Super recomendo!"
+                </p>
+                <div class="depoimento-author">
+                    <div class="author-avatar">RF</div>
+                    <div class="author-info">
+                        <h4>Rafael Santos</h4>
+                        <p>Cliente desde 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento">
+                <p class="depoimento-text">
+                    "Confiança total! Vendi várias skins e sempre recebi o pagamento na hora. O Jorge é muito profissional e sempre tira todas as dúvidas. Pode confiar!"
+                </p>
+                <div class="depoimento-author">
+                    <div class="author-avatar">MC</div>
+                    <div class="author-info">
+                        <h4>Mariana Costa</h4>
+                        <p>Cliente desde 2022</p>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento">
+                <p class="depoimento-text">
+                    "Encontrei a skin que procurava há meses por um preço incrível! Negociação tranquila, pagamento seguro e entrega imediata. Melhor experiência que já tive!"
+                </p>
+                <div class="depoimento-author">
+                    <div class="author-avatar">PH</div>
+                    <div class="author-info">
+                        <h4>Paulo Henrique</h4>
+                        <p>Cliente desde 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-contact-btn">
+            <a href="https://wa.me/5511999999999" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">📱</span>
+                Entrar em contato
+            </a>
+        </div>
+    </section>
+
+    <!-- Contatos Section -->
+    <section id="contatos">
+        <h2 class="section-title">CONTATOS</h2>
+        <div class="contatos-container">
+            <p style="font-size: 1.3rem; color: var(--text-gray); margin-bottom: 2rem;">
+                Entre em contato conosco através das nossas redes sociais
+            </p>
+            <div class="social-links">
+                <a href="https://instagram.com/seujorgeskins" class="social-link" target="_blank" title="Instagram">
+                    📷
+                </a>
+                <a href="https://wa.me/5511999999999" class="social-link" target="_blank" title="WhatsApp">
+                    📱
+                </a>
+                <a href="https://steamcommunity.com/id/seujorgeskins" class="social-link" target="_blank" title="Steam">
+                    🎮
+                </a>
+            </div>
+            <a href="https://wa.me/5511999999999" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">📱</span>
+                Entrar em contato
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Feito por hive.mkt - Todos os direitos reservados SEU JORGE SKINS</p>
+    </footer>
+
+    <script>
+        // Animação do texto do Hero
+        const words = ['comprar', 'vender', 'trocar'];
+        let currentIndex = 0;
+        const animatedWord = document.getElementById('animatedWord');
+
+        function changeWord() {
+            currentIndex = (currentIndex + 1) % words.length;
+            animatedWord.style.animation = 'none';
+            setTimeout(() => {
+                animatedWord.textContent = words[currentIndex];
+                animatedWord.style.animation = 'slideIn 0.5s ease-in-out';
+            }, 50);
+        }
+
+        setInterval(changeWord, 3000);
+
+        // Smooth scroll para links da navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
